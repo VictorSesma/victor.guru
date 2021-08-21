@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: victor-guru
+  labels:
+    app: web
+spec:
+  containers:
+    - name: front-end
+      image: docker.io/leviatan89/victor-guru:latest
+      ports:
+        - containerPort: 80
+  imagePullSecrets:
+    - name: regcred
