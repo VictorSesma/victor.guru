@@ -1,0 +1,7 @@
+version: '3.4'
+services:
+  victor-guru:
+    container_name: victor_guru
+    build: ./
+    ports:
+      - '80:80'
