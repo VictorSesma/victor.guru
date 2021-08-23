@@ -1,6 +1,27 @@
- apiVersion: apps/v1
- kind: Deployment
- metadata:
-   name: victor-guru
- spec:
-   replicas: 2
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: victor-guru
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: victor-guru
+  template:
+    metadata:
+      labels:
+        app: victor-guru
+        role: aaa
+        tier: bbb
+    spec:
+      containers:
+      - name: victor-guru
+        image: docker.io/leviatan89/victor-guru:latest
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+        ports:
+        - containerPort: 80
+      imagePullSecrets:
+        - name: regcred
